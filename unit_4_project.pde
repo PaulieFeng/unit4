@@ -1,12 +1,16 @@
 
 color yellow=#FFFF00;
 color lightblue=#03CEFF;
+color green=#00FF00;
+color black=#000000;
 
 
 void setup(){
   size(1000,800);
   background(lightblue);
   gressland();
+  plant();
+}
   
 void gressland(){
   int x=0;
@@ -19,10 +23,27 @@ void gressland(){
       x=0;
       y+=100;
     }
+   
   }
 }
 
-
-
-
+void plant(int x, int y){
+  
 }
+
+void planthead(int x, int y){
+  pushMatrix();
+  translate(x,y);
+  fill (green);
+  //root
+  rect(35,25,30,50);
+  //mouse
+  rect(50,25,random(25,50),random(10,25));
+  //head
+  circle (50,25,random(20,50));
+  //eye
+  fill (black);
+  circle(50,25,10);
+  //leaves
+  
+  

@@ -9,9 +9,10 @@ void setup(){
   size(1000,800);
   background(lightblue);
   gressland();
-  plant();
-}
+ plants();
   
+}
+ ////////////////////////////////////////////gress land 
 void gressland(){
   int x=0;
   int y=200;
@@ -27,11 +28,19 @@ void gressland(){
   }
 }
 
-void plant(int x, int y){
-  
+///////////////////////////////////////////plant
+void plants(){
+while(y<800){
+    planthead();
+    x+=100;
+    if (x>1000){
+      x=0;
+    y+=100;
+  }
+}
 }
 
-void planthead(int x, int y){
+void plant(int x, int y)[ 
   pushMatrix();
   translate(x,y);
   fill (green);
@@ -44,6 +53,17 @@ void planthead(int x, int y){
   //eye
   fill (black);
   circle(50,25,10);
-  //leaves
+ leaves();
+ popMatrix();
+}
+  void leaves(){
+  fill (green);
+  int count=0;
+  while (count<4){
+  ellipse(50,100,20,10);
+  rotate(radians(random(0,360)));
+  count+=1; 
+  }
+  }
   
-  
+  /////////////////////////////////////////////////light

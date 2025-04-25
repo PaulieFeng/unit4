@@ -4,25 +4,28 @@ color lightblue=#03CEFF;
 color green=#00FF00;
 color black=#000000;
 
-
+ 
+  
 void setup(){
   size(1000,800);
   background(lightblue);
   gressland();
- plants();
-  
-}
+  plants();
+  light();
+}  
+
+
  ////////////////////////////////////////////gress land 
 void gressland(){
-  int x=0;
-  int y=200;
-  while (y<800){
+  int gx=0;
+  int gy=200;
+  while (gy<800){
     fill(0,random(30,255),0);
-    rect(x,y,100,100);
-    x+=100;
-    if (x>=1000){
-      x=0;
-      y+=100;
+    rect(gx,gy,100,100);
+    gx+=100;
+    if (gx>=1000){
+      gx=0;
+      gy+=100;
     }
    
   }
@@ -30,19 +33,21 @@ void gressland(){
 
 ///////////////////////////////////////////plant
 void plants(){
-while(y<800){
-    planthead();
-    x+=100;
-    if (x>1000){
-      x=0;
-    y+=100;
+  int psx=0;
+  int psy=200;
+while(psy<800){
+    plant(psx,psy);
+    psx+=100;
+    if (psx>1000){
+     psx=0;
+    psy+=100;
   }
 }
 }
 
-void plant(int x, int y)[ 
+void plant(int px, int py)[ 
   pushMatrix();
-  translate(x,y);
+  translate(px,py);
   fill (green);
   //root
   rect(35,25,30,50);
@@ -56,6 +61,7 @@ void plant(int x, int y)[
  leaves();
  popMatrix();
 }
+  ////leaves
   void leaves(){
   fill (green);
   int count=0;
@@ -67,3 +73,31 @@ void plant(int x, int y)[
   }
   
   /////////////////////////////////////////////////light
+  void light(){
+    int count=0;
+    while(count<20){
+    lightcircle(random(0,1000),random(0,200),random(30,100));
+    lighttriangle(random(0,1000),random(0,200),cd2);
+    count+=1;
+  }
+  
+  //light circle on the back
+  void lightcircle(int cx, int cy, int cd1){
+    int cd2=cd1;
+  stroke (yellow);
+  fill (white);
+  while (cd1>10){
+   circle(cx,cy,cd1);
+   cd-=10;
+  }
+  }
+  //light triangles in the middle
+void lighttriangle(int cx, int cy, int cd2){
+  fill (yellow);
+  int count=8;
+  while (count<8){
+  triangele(cx-cd2/2,cy,cx,cy+cd2/2,cx+cd2/2,cy);
+  rotate(radians(45));
+  count+=1; 
+  }
+  }
